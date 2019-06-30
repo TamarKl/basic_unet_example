@@ -190,7 +190,9 @@ class UNetExperiment(PytorchExperiment):
         test_ref_list = []
         for key in pred_dict.keys():
             test_ref_list.append((np.stack(pred_dict[key]), np.stack(gt_dict[key])))
-
+        save_segmentation(np.asarray(pred_dict[key]).squeeze(),
+                          self.config.data_root_dir + '/brains/imagesTr/',
+                          self.elog.work_dir + "/{}".format('segmentation'), key)
         scores = aggregate_scores(test_ref_list, evaluator=Evaluator, json_author=self.config.author, json_task=self.config.name, json_name=self.config.name,
                                   json_output_file=self.elog.work_dir + "/{}_".format(self.config.author) + self.config.name + '.json')
 
