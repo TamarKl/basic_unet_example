@@ -19,6 +19,7 @@ import numpy as np
 import SimpleITK
 import os
 
+#this function saves the segmentation tested.
 def save_segmentation(array, reference_dir, output_dir, key):
     image = reference_dir + key.split('/')[-1].replace('npy', 'nii.gz')
     img = SimpleITK.ReadImage(image)
