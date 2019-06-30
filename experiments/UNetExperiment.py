@@ -30,6 +30,7 @@ from trixi.experiment.pytorchexperiment import PytorchExperiment
 
 from networks.RecursiveUNet import UNet
 from loss_functions.dice_loss import SoftDiceLoss
+from datasets.utils import save_segmentation
 
 class UNetExperiment(PytorchExperiment):
     """
